@@ -1,6 +1,7 @@
 song1 = "";
 song2 = "";
 function setup(){
+
     video = createCapture(VIDEO);
    video.hide()
     
