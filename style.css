@@ -2,3 +2,7 @@
     text-align: center;
     font-size: 23px;
 }
+canvas{
+    border : 5px ridge aqua;
+    border-radius: 25px; 
+}
