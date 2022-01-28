@@ -20,6 +20,8 @@ function ModelLoaded(){
 function gotPoses(results){
     if(results.length > 0 ){
         console.log(results);
+        scoreleftWrist = results[0].pose.keypoints[9].score;
+        console.log("scoreleftWrist = "+scoreleftWrist);
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
         console.log("leftWristX = "+leftWristX , "leftWristY = "+leftWristY);
@@ -31,6 +33,17 @@ function gotPoses(results){
 }
 function draw(){
     image(video,0,0,600,500);
+    fill("#FF000");
+    stroke("#FF000");
+    if(scoreleftWrist>0.2){
+    circle(leftWristX,leftWristY,20);
+    song1.stop();
+    if(song_status == false){
+        song2.play;
+        document.getElementById("song").innerHTML = "The flash theme song is playing now";
+    }
+    }
+    
 }
 function preload(){
 song1 = loadSound("The Avengers Theme Song.mp3");
